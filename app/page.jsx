@@ -27,6 +27,8 @@ export default function Home() {
       { role: 'assistant', content: '' },
     ])
 
+    
+
     try {
       const response = fetch('/api/chat', {
         method: 'POST',
@@ -55,10 +57,14 @@ export default function Home() {
         })
       }
     } catch(err) {
-      setMessages((messages) => [
-        ...messages,
-        {role: 'assistant', content: `I'm sorry, I encountered an error. Please try again later.`}
-      ])
+      setMessages((messages) => {
+        let lastMessage =  messages[messages.length - 1]
+        let otherMessages = messages.slice(0, messages.length - 1)
+        return [
+          ...otherMessages,
+          {...lastMessage, role: 'assistant', content: `I'm sorry, I encountered an error. Please try again later.`}
+        ]
+      })
     }
     setIsLoading(false)
   }
