@@ -7,6 +7,7 @@ import { FaArrowUp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Message from "@/components/Message";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function Home() {
   const [messages, setMessages] = useState([
@@ -91,7 +92,7 @@ export default function Home() {
         <div ref={messagesEndRef} />
       </div>
       <div className="p-4 border-gray-300 flex flex-row space-x-4 w-full">
-        <Input value={message} onChange={(e) => setMessage(e.target.value)} onKeyPress={handleKeyPress} disabled={isLoading} /> 
+        <Textarea value={message} onChange={(e) => setMessage(e.target.value)} onKeyPress={handleKeyPress} disabled={isLoading} /> 
         <Button onClick={sendMessage} disabled={isLoading}>
           <FaArrowUp />
         </Button>

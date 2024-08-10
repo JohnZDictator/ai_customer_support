@@ -6,10 +6,10 @@ const Message = ({message, isUser}) => {
   return (
     <div className={clsx('flex w-full my-6', isUser ? 'justify-end' : 'justify-start')}>
         <div className={clsx(
-          'max-w-[70%] p-4 rounded-lg',
+          'max-w-[70%] p-4 rounded-lg text-sm',
           isUser
             ? 'bg-blue-500 text-white rounded-br-none'
-            : 'bg-gray-200 text-black rounded-bl-none'
+            : 'bg-gray-200 text-slate-800 rounded-bl-none'
         )}>
             {message}
         </div>
