@@ -28,10 +28,8 @@ export default function Home() {
       { role: 'assistant', content: '' },
     ])
 
-    
-
     try {
-      const response = fetch('/api/chat', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify([...messages, {role: 'user', content: message}]),
@@ -41,7 +39,7 @@ export default function Home() {
         throw new Error('Network response was not ok')
       }
 
-      const reader = res.body.getReader()
+      const reader = response.body.getReader()
       const decoder = new TextDecoder()
 
       while(true) {

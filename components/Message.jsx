@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from "clsx";
+import MarkdownRenderer from "./MarkdownRenderer";
 
 const Message = ({message, isUser}) => {
   return (
@@ -11,7 +12,7 @@ const Message = ({message, isUser}) => {
             ? 'bg-blue-500 text-white rounded-br-none'
             : 'bg-gray-200 text-slate-800 rounded-bl-none'
         )}>
-            {message}
+            <MarkdownRenderer content={message} />
         </div>
     </div>
   );
